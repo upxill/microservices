@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-play-k8s
+  labels:
+    app: dev-play-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dev-play-k8s
+  template:
+    metadata:
+      labels:
+        app: dev-play-k8s
+    spec:
+      containers:
+        - name: dev-play-k8s
+          image: docker.io/polagani/microservices:dev-play-k8s
+          ports:
+            - containerPort: 8080
